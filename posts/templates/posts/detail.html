@@ -1,0 +1,68 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="shortcut icon" href="{% static 'posts/img/favicon.ico' %}">
+
+        <title>Josedo blog</title>
+
+        <link rel="stylesheet" href="{% static 'posts/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'posts/css/styles.css' %}">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="navbar navbar-inverse" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Josedo Blog</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="{% url 'posts:index' %}">Inicio</a></li>
+                        <li><a href="{% url 'about' %}">Sobre mi</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <section class="posts">
+                <article class="text-left post">
+                    <div class="contenido">
+                        <h2>{{ post.title }}</h2>
+                        <p class="text-muted fecha">{{ post.created }}
+                            <a href="{% url 'posts:tag' post.tag %}" class="tag">{{ post.tag }}</a>
+                        </p>
+                        <p class="contenido">{{ post.content|safe|escape }}</p>
+                        <p class="text-center"><a href="{% url 'post:index' %}">Atras</a></p>
+                    </div>
+                    <div class="share">
+                        <a href="#">Twitter</a>
+                        <a href="#">Facebook</a>
+                        <a href="#">Google+</a>
+                    </div>
+                </article>
+            </section> 
+        </div>       
+
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="{% static 'posts/js/vendor/bootstrap.min.js' %}"></script>
+    </body>
+</html>

@@ -1,0 +1,105 @@
+azul = #22BCE0
+gris_oscuro = #444
+gris_texto = #7A7A7A
+linkedIn_color = #0e76a8
+twitter_color = #4099FF
+blog_color = #FF6600
+
+@font-face {
+	font-family: 'icons';
+	src:url('../fonts/icons.eot');
+	src:url('../fonts/icons.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/icons.woff') format('woff'),
+		url('../fonts/icons.ttf') format('truetype'),
+		url('../fonts/icons.svg#icons') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body
+	background #E8E8E8
+	color gris_oscuro
+	margin 10% 0 0 0
+	font-family Arial
+	font-size 18px
+	text-align center
+
+header
+	h1
+		color gris_texto
+	#avatar
+		img
+			width 100px
+			height 100px
+			border-radius 50%
+section
+	.social
+		display inline-block
+		width 90%
+	article
+		#blog
+			background blog_color
+			width 25%
+			&:before
+				content "\e602"
+				font-family "icons"
+		#linkedIn
+			background linkedIn_color
+			width 26%
+			&:before
+				content "\e600"
+				font-family "icons"
+		#github
+			background black
+			width 25%
+			&:before
+				content "\e601"
+				font-family "icons"	
+		#twitter
+			background twitter_color
+			width 25%
+			&:before
+				content "\e603"
+				font-family "icons"
+		.shared
+			border-radius 0.5em
+			color white
+			padding 0.2em 0.5em
+			text-decoration none
+			margin 0.5em 0 0 0
+			display inline-block
+			width 100px
+			&:nth-child(even)
+				margin-right 5%
+				margin-left 5%
+			&:nth-child(odd)
+				margin-right 5%
+				margin-left 5%
+			a
+				color white
+				font-style italic
+				text-decoration none
+
+@media screen and (min-width: 768px)
+	
+	section
+		.social
+			display inline-block
+			width 100%
+		article
+			#blog
+				width 100px
+			#linkedIn
+				width 100px
+			#github
+				width 100px
+			#twitter
+				width 100px
+			.shared
+				width 100px
+				&:nth-child(even)
+					margin-right 0.5em
+					margin-left 0.5em
+				&:nth-child(odd)
+					margin-right 0.5em
+					margin-left 0.5em

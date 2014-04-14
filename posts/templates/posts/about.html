@@ -1,0 +1,70 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>José Domingo Peinado Rodríguez</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="{% static 'posts/css/normalize.css">
+        <link rel="stylesheet" href="{% static 'posts/css/main.css' %}">
+        <link rel="stylesheet" href="{% static 'posts/css/estilos.css' %}">
+        <script src="{% static 'posts/js/vendor/modernizr-2.6.2.min.js' %}"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">Estas usando un navegador  <strong>demasiado antiguo</strong>. Por favor, visita <a href="http://browsehappy.com/">y actualizalo</a> para mejorar tu experiencia en la web.</p>
+        <![endif]-->
+
+        <section>
+            <header>
+                <figure id="avatar">
+                    <img src="{% static 'posts/img/avatar.jpg' %}">
+                </figure>
+                <h1>José Domingo Peinado Rodríguez</h1>
+            </header>
+
+            <article class="social">
+                <div class="shared" id="github">
+                    <a href="https://github.com/mingo86" target=_blank>github</a>
+                </div>
+                 
+                <div class="shared" id="linkedIn">
+                    <a href="http://es.linkedin.com/pub/jos%C3%A9-domingo-peinado-rodr%C3%ADguez/57/94b/4a9" target=_blank>linkedIn</a>
+                </div>
+
+                <div class="shared" id="blog">
+                    <a href="{% url 'posts:index' %}">blog</a>
+                </div>              
+                
+                <div class="shared" id="twitter">
+                    <a href="https://twitter.com/josedopeinado" target=_blank>twitter</a>
+                </div>
+
+            </article>
+            <h2>Software Developer</h2>
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="{% static 'posts/js/vendor/jquery-1.10.2.min.js' %}"><\/script>')</script>
+        <script src="{% static 'posts/js/main.js' %}"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+    </body>
+</html>

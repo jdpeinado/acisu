@@ -1,0 +1,89 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="shortcut icon" href="{% static 'posts/img/favicon.ico' %}">
+
+        <title>Josedo blog</title>
+
+        <link rel="stylesheet" href="{% static 'posts/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'posts/css/styles.css' %}">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="navbar navbar-inverse" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Josedo Blog</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="{% url 'posts:index' %}">Inicio</a></li>
+                        <li><a href="{% url 'about' %}">Sobre mi</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <section class="posts">
+                {% if latest_post_list %}
+                    {% for post in latest_post_list %}
+                        <article class="text-left post">
+                            <div class="contenido">
+                                <h2 class="titulo"><a href="{% url 'posts:detail' post.slug %}">{{ post.title }}</a></h2>
+                                <p class="text-muted fecha">
+                                    {{ post.created }}
+                                    <a href="{% url 'posts:tag' post.tag %}" class="tag">{{ post.tag }}</a>
+                                </p>
+                                <p class="contenido">{{ post.content|safe|escape|slice:":500"}}...</p>
+                                <p class="text-center"><a href="{% url 'posts:detail' post.slug %}">Leer mas...</a></p>
+                            </div>
+                            <div class="share">
+                                <a href="#">Twitter</a>
+                                <a href="#">Facebook</a>
+                                <a href="#">Google+</a>
+                            </div>
+                        </article>
+                        <hr>
+                    {% endfor %}
+                {% else %}
+                    <p>No hay ninguna entrada aún escrita.</p>
+                {% endif %}
+            </section> 
+            <ul class="pager">
+                {% if latest_post_list.has_previous %}
+                    <li><a href="?page={{ latest_post_list.previous_page_number }}">&larr; Anterior</a></li>
+                {% else %}
+                    <li class="disabled"><a href="">&larr; Anterior</a></li>
+                {% endif %}
+
+                {% if latest_post_list.has_next %}
+                    <li><a href="?page={{ latest_post_list.next_page_number }}">Siguiente &rarr;</a></li>
+                {% else %}
+                    <li class="disabled"><a href="">Siguiente &rarr;</a></li>
+                {% endif %}
+            </ul>
+        </div>       
+
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="{% static 'posts/js/vendor/bootstrap.min.js' %}"></script>
+    </body>
+</html>

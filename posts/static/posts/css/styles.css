@@ -1,0 +1,6 @@
+body{font-size:21px}
+.fecha{display:inline-block;font-size:16px;}
+.fecha a:hover{color:#000;text-decoration:none}
+.tag{background-color:#007fff;border-radius:1em;color:#fff;display:inline-block;margin-left:.4em;padding:.1em .3em}
+.titulo a{color:#000;}
+.titulo a:hover{color:#808080;text-decoration:none}
